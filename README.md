@@ -1,4 +1,3 @@
-
 # 🧠🧪 Taller: Syscall en Windows — Teórico y práctico
 
 Bienvenido al taller sobre syscalls en Windows. Este documento está escrito en español y busca ser accesible a un público con conocimientos básicos de programación en C y del ecosistema Windows. Vamos desde los conceptos más elementales hasta temas avanzados, con ejemplos prácticos y guías para usar herramientas como WinDbg y x64dbg.
@@ -25,34 +24,33 @@ Bienvenido al taller sobre syscalls en Windows. Este documento está escrito en 
 
 ---
 
-## Índice
+---
 
-1. Arquitectura de Windows: conceptos clave
-2. ¿Qué es una syscall? Flujo de ejecución
-3. Niveles y componentes relevantes: WinAPI, kernel32, ntdll, ntoskrnl
-4. Cómo funcionan los trampas/llamadas (trampoline) en `ntdll`
-5. Obtener los IDs de syscall: técnicas y herramientas
-6. User-land hooks: IAT, EAT, inline hooks y ejemplos
-7. Syscall directas: explicación técnica y ejemplo en C
-8. Ejercicios prácticos con WinDbg y x64dbg
-9. Código de ejemplo y cómo compilar
-10. Ejercicios prácticos en C con análisis de syscalls
-11. Recursos y lecturas recomendadas
+## Archivos añadidos
+
+- `build_ejercicios.bat` — Script para compilar todos los ejercicios con MSVC.
+- `taller_practico.md` — Guía práctica separada con ejercicios y depuradores.
+- `c_examples/direct_syscall_stub.c` — Lectura de stub en ntdll.
+- `c_examples/ejercicio1_createfile.c` — Crear archivo.
+- `c_examples/ejercicio2_readfile.c` — Leer archivo.
+- `c_examples/ejercicio3_writefile.c` — Escribir archivo.
+- `c_examples/ejercicio4_listdir.c` — Listar directorio.
+- `c_examples/ejercicio5_createprocess.c` — Crear proceso.
+- `c_examples/ejercicio6_virtualalloc.c` — Asignar memoria.
+- `c_examples/ejercicio7_socketconnect.c` — Conectar socket.
+- `c_examples/ejercicio8_getsysteminfo.c` — Información del sistema.
 
 ---
 
-## Resumen rápido de ejercicios 🧾
+## Siguientes pasos sugeridos
 
-| # | Ejercicio | Binario | Syscall objetivo | Descripción breve |
-|---:|:---------|:--------|:----------------:|:------------------|
-| 1 | Crear archivo | `ejercicio1.exe` | `NtCreateFile` | Crear `test_file.txt` |
-| 2 | Leer archivo | `ejercicio2.exe` | `NtReadFile` | Leer `test_file.txt` |
-| 3 | Escribir archivo | `ejercicio3.exe` | `NtWriteFile` | Escribir `output.txt` |
-| 4 | Listar directorio | `ejercicio4.exe` | `NtQueryDirectoryFile` | Iterar nombres de archivo |
-| 5 | Crear proceso | `ejercicio5.exe` | `NtCreateUserProcess` | Crear Notepad |
-| 6 | Asignar memoria | `ejercicio6.exe` | `NtAllocateVirtualMemory` | Reservar memoria virtual |
-| 7 | Conectar socket | `ejercicio7.exe` | varios | Operaciones de red/IO |
-| 8 | Info sistema | `ejercicio8.exe` | `NtQuerySystemInformation` | Consultar info del sistema |
+- Practica los ejercicios en una VM.
+- Experimenta con más APIs (como networking: `socket`, `connect`).
+- Aprende sobre EDR evasion y cómo detectan syscalls directas.
+- Si se desea, se pueden añadir ejemplos con stubs directos o scripts para extraer IDs automáticamente.
+
+*(Este README ha sido limpiado para eliminar caracteres de encoding y formateado para una lectura consistente.)*
+
 
 
 ## 1) Arquitectura de Windows: conceptos clave
@@ -410,7 +408,4 @@ Estos ejercicios te ayudarán a entender cómo las APIs de alto nivel traducen a
 - Practica los ejercicios en una VM.
 - Experimenta con más APIs (como networking: `socket`, `connect`).
 - Aprende sobre EDR evasion y cómo detectan syscalls directas.
-- Si quieres, puedo añadir ejemplos con stubs directos o scripts para extraer IDs automáticamente.
-#   s Y S C A L L _ w I N D O W S 
- 
- 
+- Si se desea, se pueden añadir ejemplos con stubs directos o scripts para extraer IDs automáticamente.
